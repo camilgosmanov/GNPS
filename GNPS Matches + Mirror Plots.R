@@ -23,7 +23,7 @@ url <- 'https://gnps.ucsd.edu/ProteoSAFe/status.jsp?task=a41e05f0699e45328675aac
 output <- "~/Downloads/Matches(Completed).csv" 
 
 #Output presentation
-output2 <- "Matches(Compelted).pptx"
+output2 <- "Matches(Completed).pptx"
 
 #Splits column into M/Z and RT
 
