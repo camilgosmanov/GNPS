@@ -1,4 +1,5 @@
 # GNPS
+Description:
 Find mirror matches from mass sprectrometry data uploaded to GNPS (must have firefox installed)
 
 1. Download cytoscape files from the GNPS job status page ("Advanced Views - External Visualization" -> "Direct Cytoscape Preview/Download")
