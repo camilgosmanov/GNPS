@@ -568,9 +568,9 @@ AddSlide <- function() {
   
   subset_x <- MatchesAnnotation[x,]
   
-  table_loc <- ph_location(left=1,top=0.4,width=10,height=1)
+  table_loc <- ph_location(left=1.08,top=0.4,width=10,height=1)
   
-  a <- width(flextable(subset_x),j=1,width=4.63)
+  a <- width(flextable(subset_x),j=1,width=4.58)
   a %<>% bold(i=1)
   a %<>% theme_zebra(odd_header = "#5A80B8",odd_body = "#D1D8E6")
   a %<>% color(part="header",color="#FFFFFF")
@@ -663,9 +663,9 @@ AddSlideAnalog <- function() {
   
   subset_x <- MatchesAnalog[x,]
   
-  table_loc <- ph_location(left=1,top=0.4,width=10,height=1)
+  table_loc <- ph_location(left=1.08,top=0.4,width=10,height=1)
   
-  a <- width(flextable(subset_x),j=1,width=4.63)
+  a <- width(flextable(subset_x),j=1,width=4.58)
   a %<>% bold(i=1)
   a %<>% theme_zebra(odd_header = "#5A80B8",odd_body = "#D1D8E6")
   a %<>% color(part="header",color="#FFFFFF")
