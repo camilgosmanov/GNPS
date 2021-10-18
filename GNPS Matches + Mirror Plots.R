@@ -12,9 +12,9 @@ library(flextable)
 
 setwd("~/Downloads/")
 
-Nodes <- read_csv("~/Downloads/Nodes.csv") #Node table from Cytoscape
-Edge1 <- read_csv("~/Downloads/Edge.csv") #Edge table from Cytoscape
-Masses <- read_csv("~/Downloads/Matches.csv") #Fold Change/Features table
+Nodes <- read_csv("Nodes.csv") #Node table from Cytoscape
+Edge1 <- read_csv("Edge.csv") #Edge table from Cytoscape
+Masses <- read_csv("Matches.csv") #Fold Change/Features table
 
 #GNPS URL
 url <- 'https://gnps.ucsd.edu/ProteoSAFe/status.jsp?task=a41e05f0699e45328675aac49f667753'
@@ -484,9 +484,9 @@ MatchesAnnotation <- Matches[(Matches$`Analog?`=="No"),]
 MatchesAnnotation %<>% select(Annotation,'M/Z',RT,'Cosine Score','Shared Peaks',`Cluster Index`)
 
 #Make Images folder
-unlink("~/Downloads/GNPS_Mirror_Matches_Temp",recursive = TRUE)
-dir.create("~/Downloads/GNPS_Mirror_Matches_Temp")
-file.create("~/Downloads/GNPS_Mirror_Matches_Temp/null.png")
+unlink("GNPS_Mirror_Matches_Temp",recursive = TRUE)
+dir.create("GNPS_Mirror_Matches_Temp")
+file.create("GNPS_Mirror_Matches_Temp/null.png")
 
 #Make Powerpoint
 pres <- read_pptx()
@@ -499,11 +499,13 @@ pres <- ph_with(pres, value = "Annotations",location=ph_location_type(type="ctrT
 
 #Set Firefox profile
 fprof <- makeFirefoxProfile(list(browser.download.manager.showWhenStarting=FALSE,
-                                 browser.download.dir = "~/Downloads/GNPS_Mirror_Matches_Temp", 
+                                 browser.download.dir = paste(getwd(),"/GNPS_Mirror_Matches_Temp",sep=""), 
                                  browser.helperApps.alwaysAsk.force= FALSE,
                                  browser.helperApps.neverAsk.saveToDisk="image/png",
                                  browser.helperApps.neverAsk.openFile = "image/png",
                                  browser.download.folderList = 2L))
+
+#"~/Downloads/GNPS_Mirror_Matches_Temp"
 
 #Create Remote Driver
 rD <- rsDriver(port=free_port(),browser = "firefox",extraCapabilities=fprof)
@@ -564,7 +566,7 @@ AddSlide <- function() {
   pres <- add_slide(pres,layout="Title and Content",master = "Office Theme")
   
   img_loc <- ph_location(left=0.5,top=1.5,width=9,height=5.7)
-  pres <- ph_with(pres, value = external_img(paste("~/Downloads/GNPS_Mirror_Matches_Temp/null(",x,").png",sep="")),location=img_loc)
+  pres <- ph_with(pres, value = external_img(paste("GNPS_Mirror_Matches_Temp/null(",x,").png",sep="")),location=img_loc)
   
   subset_x <- MatchesAnnotation[x,]
   
@@ -612,9 +614,9 @@ repeat{
 ########
 
 #Make Images folder
-unlink("~/Downloads/GNPS_Mirror_Matches_Temp",recursive = TRUE)
-dir.create("~/Downloads/GNPS_Mirror_Matches_Temp")
-file.create("~/Downloads/GNPS_Mirror_Matches_Temp/null.png")
+unlink("GNPS_Mirror_Matches_Temp",recursive = TRUE)
+dir.create("GNPS_Mirror_Matches_Temp")
+file.create("GNPS_Mirror_Matches_Temp/null.png")
 
 x <- 1
 delay <- 1
@@ -659,7 +661,7 @@ AddSlideAnalog <- function() {
   pres <- add_slide(pres,layout="Title and Content",master = "Office Theme")
   
   img_loc <- ph_location(left=0.5,top=1.5,width=9,height=5.7)
-  pres <- ph_with(pres, value = external_img(paste("~/Downloads/GNPS_Mirror_Matches_Temp/null(",x,").png",sep="")),location=img_loc)
+  pres <- ph_with(pres, value = external_img(paste("GNPS_Mirror_Matches_Temp/null(",x,").png",sep="")),location=img_loc)
   
   subset_x <- MatchesAnalog[x,]
   
@@ -708,7 +710,7 @@ repeat{
 
 print(pres,target=output2)
 
-unlink("~/Downloads/GNPS_Mirror_Matches_Temp",recursive = TRUE)
+unlink("GNPS_Mirror_Matches_Temp",recursive = TRUE)
 
 remDr$close()
 rD$server$stop()
