@@ -20,7 +20,7 @@ Masses <- read_csv("~/Downloads/Matches.csv") #Fold Change/Features table
 url <- 'https://gnps.ucsd.edu/ProteoSAFe/status.jsp?task=a41e05f0699e45328675aac49f667753'
 
 #Output Matches csv
-output <- "~/Downloads/Matches(Completed).csv" 
+output <- "Matches(Completed).csv" 
 
 #Output presentation
 output2 <- "Matches(Completed).pptx"
