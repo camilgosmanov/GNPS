@@ -1,6 +1,6 @@
 list.of.packages <- c("dplyr","tidyverse","magrittr","officer","RSelenium","netstat","flextable")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
+if(length(new.packages) > 0){install.packages(new.packages, dependencies = TRUE)}
 
 library(tidyverse)
 library(dplyr)
