@@ -9,7 +9,7 @@ Find mirror matches from mass spectrometry data uploaded to GNPS using R
 5. Set the url to the GNPS job status page
 6. Set the working directory and output file names, then run the program (GNPS Matches + Mirror Plots.R)
 7. When it is running in firefox, keep the window open in front to minimize loading time errors
-8. When the browser closes, the program is finished and the .pptx and .csv file will be output to downloads
+8. When the browser closes, the program is finished and the .pptx and .csv file will be output to the working directory
 
 Notes:
 - This program uses firefox to navigate through the GNPS library
