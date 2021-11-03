@@ -1,6 +1,6 @@
 # GNPS
 Description:
-Find mirror matches from mass spectrometry data uploaded to GNPS using R (must have firefox installed).
+Find mirror matches from mass spectrometry data uploaded to GNPS using R
 
 1. Download cytoscape files from the GNPS job status page ("Advanced Views - External Visualization" -> "Direct Cytoscape Preview/Download")
 2. Open in Cytoscape and export the Edge table and Node table to downloads as .csv
@@ -12,6 +12,7 @@ Find mirror matches from mass spectrometry data uploaded to GNPS using R (must h
 8. When the browser closes, the program is finished and the .pptx and .csv file will be output to downloads
 
 Notes:
-- If you are using Windows, you will need to install Rtools
+- This program uses firefox to navigate through the GNPS library
+- If you are using Windows, you will need to install Rtools to make the presentation
 - If you get an httr error, you may need to download the newest version of Java JDK
 - If you get a library error, you may need to update your version of either R or R Studio 
