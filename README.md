@@ -14,5 +14,5 @@ Find mirror matches from mass spectrometry data uploaded to GNPS using R
 Notes:
 - This program uses firefox to navigate through the GNPS library
 - If you are using Windows, you will need to install Rtools to make the presentation
-- If you get an httr error, you may need to download the newest version of Java JDK
+- If you get an httr error, you may need to download the newest version of Java or Java JDK
 - If you get a library error, you may need to update your version of either R or R Studio 
