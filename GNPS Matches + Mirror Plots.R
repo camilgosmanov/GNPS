@@ -25,6 +25,9 @@ output <- "Matches(Completed).csv"
 #Output presentation
 output2 <- "Matches(Completed).pptx"
 
+#If there are any errors, try incrementing by 1
+loadingtime <- 0.1
+
 #Splits column into M/Z and RT
 
 Masses$features2 <- Masses$features
@@ -473,11 +476,6 @@ write.csv(Masses,output,row.names=FALSE)
 #Presentation
 
 Matches <- Masses
-
-############
-#If there are any errors, try incrementing by 1
-loadingtime <- 1
-############
 
 Matches %<>% drop_na(Annotation)
 Matches %<>% mutate('Shared Peaks'= Matches$'No..of.Shared.Peaks')
