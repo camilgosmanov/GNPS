@@ -507,7 +507,7 @@ fprof <- makeFirefoxProfile(list(browser.download.manager.showWhenStarting=FALSE
 
 y <- 0
 x <- 1
-delay <- 0
+e <- 0
 
 #Create Remote Driver
 rD <- rsDriver(port=free_port(),browser = "firefox",extraCapabilities=fprof)
@@ -535,16 +535,24 @@ GetImage <- function() {
   Sys.sleep(loadingtime)
   remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[1]/td[1]/button[1]')$clickElement()
   Sys.sleep(loadingtime)
-  while(remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$isElementDisplayed()==FALSE){
-    Sys.sleep(0.1)
-    delay = delay + 0.1
+  
+  while(e!=1){
+    tryCatch(
+      {remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$getElementLocationInView()},
+      error=function(e){
+        Sys.sleep(loadingtime)
+        remDr$findElement(using="id",value="main.filter")$clickElement()
+        Sys.sleep(loadingtime)
+      }
+    )
     
-    if(delay>5){
-      remDr$findElement(using="id",value="main.filter")$clickElement()
-      Sys.sleep(loadingtime)
-      delay <- 0
+    if(remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$isElementDisplayed()==TRUE){
+      e <- 1
     }
   }
+  
+  e <- 0
+  
   Sys.sleep(loadingtime)
   
   remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$getElementLocationInView()
@@ -553,12 +561,6 @@ GetImage <- function() {
   remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$clickElement()
   Sys.sleep(loadingtime)
 }
-#
-#webElemtest <-NULL
-#while(is.null(webElemtest)){
-#  webElemtest <- tryCatch({remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')},
-#                          error = function(e){NULL})
-#}
 
 
 #Add slide to powerpoint function
@@ -610,7 +612,6 @@ repeat{
 
 y <- 1
 x <- 1
-delay <- 0
 
 
 ########
@@ -640,16 +641,24 @@ GetImageAnalog <- function() {
   Sys.sleep(loadingtime)
   remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[1]/td[1]/img')$clickElement()
   Sys.sleep(loadingtime)
-  while(remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$isElementDisplayed()==FALSE){
-    Sys.sleep(0.1)
-    delay = delay + 0.1
+  
+  while(e!=1){
+    tryCatch(
+      {remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$getElementLocationInView()},
+      error=function(e){
+        Sys.sleep(loadingtime)
+        remDr$findElement(using="id",value="main.filter")$clickElement()
+        Sys.sleep(loadingtime)
+      }
+    )
     
-    if(delay>5){
-      remDr$findElement(using="id",value="main.filter")$clickElement()
-      Sys.sleep(loadingtime)
-      delay <- 0
+    if(remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$isElementDisplayed()==TRUE){
+      e <- 1
     }
   }
+  
+  e <- 0
+  
   Sys.sleep(loadingtime)
   
   remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$getElementLocationInView()
@@ -712,9 +721,11 @@ repeat{
 
 print(pres,target=output2)
 
+if(x==1){
 unlink("GNPS_Mirror_Matches_Temp",recursive = TRUE)
 
 remDr$close()
 rD$server$stop()
 rm(rD)
 gc()
+  }
