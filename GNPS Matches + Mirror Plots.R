@@ -672,6 +672,7 @@ GetImageAnalog <- function() {
   }
   
   e <- 0
+  j <- 0
   
   Sys.sleep(loadingtime)
   
