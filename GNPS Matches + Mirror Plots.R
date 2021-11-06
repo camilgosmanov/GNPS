@@ -47,10 +47,10 @@ Nodes %<>% mutate("Mass" = Nodes$`precursor mass`)
 #Thresholds
 
 Masses %<>% mutate("MassHigh"= Mass+ 0.0011) #Thresholds for Mass 
-Masses %<>% mutate("MassLow"= Mass-0.0001)
+Masses %<>% mutate("MassLow"= Mass-0.0011)
 
 Masses %<>% mutate("RTHigh"= RT+0.011) #Thresholds for RT 
-Masses %<>% mutate("RTLow"= RT-0.001)
+Masses %<>% mutate("RTLow"= RT-0.011)
 
 Masses %<>% mutate("Threshold_Increased" = "No")
 numThresholds <- 0
