@@ -505,7 +505,9 @@ fprof <- makeFirefoxProfile(list(browser.download.manager.showWhenStarting=FALSE
                                  browser.helperApps.neverAsk.openFile = "image/png",
                                  browser.download.folderList = 2L))
 
-#"~/Downloads/GNPS_Mirror_Matches_Temp"
+y <- 0
+x <- 1
+delay <- 0
 
 #Create Remote Driver
 rD <- rsDriver(port=free_port(),browser = "firefox",extraCapabilities=fprof)
@@ -518,8 +520,6 @@ Sys.sleep(loadingtime)
 remDr$findElement(value='/html/body/div/div[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td/div[4]/a[1]')$clickElement()
 Sys.sleep(loadingtime+1)
 
-x <- 1
-delay <- 0
 
 #Get image from GNPS function
 GetImage <- function() {
@@ -608,6 +608,10 @@ repeat{
   }
 }
 
+y <- 1
+x <- 1
+delay <- 0
+
 
 ########
 #Analogs
@@ -618,8 +622,6 @@ unlink("GNPS_Mirror_Matches_Temp",recursive = TRUE)
 dir.create("GNPS_Mirror_Matches_Temp")
 file.create("GNPS_Mirror_Matches_Temp/null.png")
 
-x <- 1
-delay <- 1
 
 pres <- add_slide(pres,layout="Title Slide",master = "Office Theme")
 pres <- ph_with(pres, value = "Analogs",location=ph_location_type(type="ctrTitle"))
