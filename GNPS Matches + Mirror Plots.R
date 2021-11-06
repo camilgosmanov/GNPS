@@ -542,6 +542,7 @@ GetImage <- function() {
       {remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$getElementLocationInView()},
       error=function(e){
         Sys.sleep(loadingtime)
+        print("Ignore this error")
         remDr$findElement(using="id",value="main.filter")$clickElement()
         Sys.sleep(loadingtime)
       }
@@ -658,6 +659,7 @@ GetImageAnalog <- function() {
       {remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$getElementLocationInView()},
       error=function(e){
         Sys.sleep(loadingtime)
+        print("Ignore this error")
         remDr$findElement(using="id",value="main.filter")$clickElement()
         Sys.sleep(loadingtime)
       }
