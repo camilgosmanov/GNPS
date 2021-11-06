@@ -89,6 +89,10 @@ repeat {#Match masses with node cluster index
     
   } else{
     
+    if(dim(subset_Nodes)[2]!=0){
+      Masses$Threshold_Increased[x] <- "2 or more nodes found"
+    } 
+    
     Masses$Annotation[x] <- subset_Nodes$Compound_Name[1] #set annotation as compound name
     Masses$`Cluster Index`[x] <- subset_Nodes$'cluster index'[1] #set cluster index equal to found node
     
