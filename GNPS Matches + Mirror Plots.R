@@ -508,6 +508,7 @@ fprof <- makeFirefoxProfile(list(browser.download.manager.showWhenStarting=FALSE
 y <- 0
 x <- 1
 e <- 0
+j <- 0
 
 #Create Remote Driver
 rD <- rsDriver(port=free_port(),browser = "firefox",extraCapabilities=fprof)
@@ -546,12 +547,19 @@ GetImage <- function() {
       }
     )
     
+    j <- j + 1
+    if(j>5){
+      remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[1]/td[1]/img')$clickElement()
+      Sys.sleep(loadingtime)
+    }
+    
     if(remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$isElementDisplayed()==TRUE){
       e <- 1
     }
   }
   
   e <- 0
+  j <- 0
   
   Sys.sleep(loadingtime)
   
@@ -651,6 +659,12 @@ GetImageAnalog <- function() {
         Sys.sleep(loadingtime)
       }
     )
+    
+    j <- j + 1
+    if(j>5){
+      remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[1]/td[1]/img')$clickElement()
+      Sys.sleep(loadingtime)
+    }
     
     if(remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$isElementDisplayed()==TRUE){
       e <- 1
