@@ -548,8 +548,8 @@ GetImage <- function() {
     )
     
     j <- j + 1
-    if(j>5){
-      remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[1]/td[1]/img')$clickElement()
+    if(j>3){
+      remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[1]/td[1]/button[1]')$clickElement()
       Sys.sleep(loadingtime)
     }
     
@@ -661,7 +661,7 @@ GetImageAnalog <- function() {
     )
     
     j <- j + 1
-    if(j>5){
+    if(j>3){
       remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[1]/td[1]/img')$clickElement()
       Sys.sleep(loadingtime)
     }
