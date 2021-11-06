@@ -548,7 +548,7 @@ GetImage <- function() {
         Sys.sleep(loadingtime)
         print("Ignore this error")
         remDr$findElement(using="id",value="main.filter")$clickElement()
-        Sys.sleep(loadingtime)
+        Sys.sleep(loadingtime + j)
       }
     )
     
@@ -669,7 +669,7 @@ GetImageAnalog <- function() {
         Sys.sleep(loadingtime)
         print("Ignore this error")
         remDr$findElement(using="id",value="main.filter")$clickElement()
-        Sys.sleep(loadingtime)
+        Sys.sleep(loadingtime + j)
       }
     )
     
