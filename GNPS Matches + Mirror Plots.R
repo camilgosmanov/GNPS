@@ -556,9 +556,9 @@ GetImage <- function() {
     tryCatch(
     {if(remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$isElementDisplayed()==TRUE){
       e <- 1
-      }
-    }
-    )
+      }}, error=function(ee){
+        Sys.sleep(loadingtime)
+      })
     
   }
   
@@ -673,9 +673,9 @@ GetImageAnalog <- function() {
     tryCatch(
     {if(remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$isElementDisplayed()==TRUE){
       e <- 1
-      }
-    }
-    )
+      }}, error=function(ee){
+        Sys.sleep(loadingtime)
+      })
     
   }
   
