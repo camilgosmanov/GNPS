@@ -30,6 +30,8 @@ loadingtime <- 0.1
 
 #Splits column into M/Z and RT
 
+names(Masses)[1] <- "features"
+
 Masses$features2 <- Masses$features
 Masses %<>% separate(features2,into= c('M/Z','RT'),sep="_",convert = TRUE)
 Masses %<>% mutate(`M/Z`=gsub("X","",`M/Z`))
