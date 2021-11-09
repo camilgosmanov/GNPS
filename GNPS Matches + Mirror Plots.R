@@ -14,7 +14,7 @@ setwd("~/Downloads/")
 
 Nodes <- read_csv("Nodes.csv") #Node table from Cytoscape
 Edge1 <- read_csv("Edge.csv") #Edge table from Cytoscape
-Masses <- read_csv("Matches.csv") #Fold Change/Features table
+Masses <- read_csv("Features.csv") #Fold Change/Features table
 
 #GNPS URL
 url <- 'https://gnps.ucsd.edu/ProteoSAFe/status.jsp?task=a41e05f0699e45328675aac49f667753'
