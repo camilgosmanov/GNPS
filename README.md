@@ -1,4 +1,7 @@
 # GNPS
+Camil Gosmanov
+github.com/camilgosmanov
+
 Description:
 Find mirror matches from mass spectrometry data uploaded to GNPS using R
 
