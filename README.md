@@ -1,6 +1,5 @@
 # GNPS
-Camil Gosmanov
-
+Camil Gosmanov 
 github.com/camilgosmanov
 
 Description:
