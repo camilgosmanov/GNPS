@@ -640,6 +640,9 @@ repeat{
 y <- 1
 x <- 1
 
+if(file.exists(paste("GNPS_Mirror_Matches_Temp/null(",nrow(MatchesAnnotation)+1,").png",sep=""))){
+  output2 <- "Error_Missmatched.pptx"
+}
 
 ########
 #Analogs
@@ -712,6 +715,7 @@ GetImageAnalog <- function() {
     remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$clickElement()
     Sys.sleep(loadingtime)
   }
+  
 } 
 
 #Add slide to powerpoint function
@@ -764,6 +768,10 @@ repeat{
     x <- 1
     break
   }
+}
+
+if(file.exists(paste("GNPS_Mirror_Matches_Temp/null(",nrow(MatchesAnalog)+1,").png",sep=""))){
+  output2 <- "Error_Missmatched.pptx"
 }
 
 print(pres,target=output2)
