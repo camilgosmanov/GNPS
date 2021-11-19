@@ -578,8 +578,12 @@ GetImage <- function() {
   remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$getElementLocationInView()
   Sys.sleep(loadingtime)
   
-  remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$clickElement()
-  Sys.sleep(loadingtime)
+  while(file.exists(paste("GNPS_Mirror_Matches_Temp/null(",x,").png",sep=""))==F){
+    remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[3]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$clickElement()
+    Sys.sleep(loadingtime)
+  }
+  
+  
 }
 
 
@@ -697,8 +701,11 @@ GetImageAnalog <- function() {
   
   remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$getElementLocationInView()
   Sys.sleep(loadingtime)
-  remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$clickElement()
-  Sys.sleep(loadingtime)
+  
+  while(file.exists(paste("GNPS_Mirror_Matches_Temp/null(",x,").png",sep=""))==F){
+    remDr$findElement(value='/html/body/div[3]/div[1]/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[3]/td/div[2]/nobr[1]/input[4]')$clickElement()
+    Sys.sleep(loadingtime)
+  }
 } 
 
 #Add slide to powerpoint function
@@ -756,10 +763,10 @@ repeat{
 print(pres,target=output2)
 
 if(x==1){
-unlink("GNPS_Mirror_Matches_Temp",recursive = TRUE)
-
-remDr$close()
-rD$server$stop()
-rm(rD)
-gc()
-  }
+  unlink("GNPS_Mirror_Matches_Temp",recursive = TRUE)
+  
+  remDr$close()
+  rD$server$stop()
+  rm(rD)
+  gc()
+}
