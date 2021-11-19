@@ -1,7 +1,4 @@
 # GNPS
-Camil Gosmanov 
-github.com/camilgosmanov
-
 Description:
 Find mirror matches from mass spectrometry data uploaded to GNPS using R
 
@@ -18,3 +15,5 @@ Notes:
 - If you are using Windows, you will need to install Rtools to make the presentation
 - If you get an httr error, you may need to download the latest version of either Java or Java JDK
 - If you get a library error, you may need to download the latest version of either R or R Studio 
+
+Camil Gosmanov github.com/camilgosmanov
