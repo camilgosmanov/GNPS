@@ -25,7 +25,7 @@ output <- "Matches(Completed).csv"
 #Output presentation
 output2 <- "Matches(Completed).pptx"
 
-#If there are any errors, try incrementing by 1
+#If there are any errors, try changing to 1
 loadingtime <- 0.1
 
 #Splits column into M/Z and RT
